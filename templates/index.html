@@ -154,7 +154,7 @@
                                                     <p>{{organic.description}}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">${{organic.price}} / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        <a href="/add_to_cart/{{organic.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,11 +176,11 @@
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{veg.category}}</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{{veg.name}}</h4>
+                                                    <a href="/detail/{{veg.slug}}"> <h4>{{veg.name}}</h4></a>
                                                     <p>{{veg.description}}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">${{veg.price}} / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        <a href="/add_to_cart/{{veg.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,11 +202,11 @@
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{fruit.category}}</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{{fruit.name}}</h4>
+                                                    <a href="/detail/{{fruit.slug}}"><h4>{{fruit.name}}</h4></a>
                                                     <p>{{fruit.description}}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">${{fruit.price}} / kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        <a href="/add_to_cart/{{fruit.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -228,11 +228,11 @@
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{bread.category}}</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{{bread.name}}</h4>
+                                                    <a href="/detail/{{bread.slug}}"><h4>{{bread.name}}</h4></a>
                                                     <p>{{bread.description}}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">${{bread.price}}/ kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        <a href="/add_to_cart/{{bread.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -254,11 +254,11 @@
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{meat.category}}</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{{meat.name}}</h4>
+                                                    <a href="/detail/{{meat.slug}}"><h4>{{meat.name}}</h4></a>
                                                     <p>{{meat.description}}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold mb-0">${{meat.price}}/ kg</p>
-                                                        <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                                        <a href="/add_to_cart/{{meat.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -340,7 +340,7 @@
                             <p>{{fresh.description}}</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold mb-0">${{fresh.price}}/ kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                <a href="/add_to_cart/{{fresh.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -406,7 +406,7 @@
                                         <i class="fas fa-star">4</i>
                                     </div>
                                     <h4 class="mb-3">{{best.price}}$</h4>
-                                    <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                    <a href="/add_to_cart/{{best.slug}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                 </div>
                             </div>
                         </div>

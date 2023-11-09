@@ -55,6 +55,9 @@ class Product(models.Model):
     def __str__(self):
         return self.slug
 
+    class Meta:
+        ordering = ('id', 'name', 'price')
+
 
 class Service(models.Model):
     title = models.CharField(max_length=200)
@@ -88,5 +91,20 @@ class ProductReviews(models.Model):
     def __str__(self):
         return self.username
 
+
+class Checkout(models.Model):
+    firstname = models.CharField(max_length=100)
+    lastname = models.CharField(max_length=100)
+    email = models.EmailField(max_length=200)
+    Address = models.CharField(max_length=100)
+    phone = models.IntegerField()
+    country = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+
+    zipcode = models.IntegerField()
+    description = models.TextField(blank=True)
+    payment = models.CharField(max_length=200)
+    def __str__(self):
+        return self.firstname
 
 

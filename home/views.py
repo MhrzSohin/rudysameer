@@ -32,9 +32,13 @@ class HomeView(BaseView):
 class CartView(BaseView):
     def get(self, request):
         username = request.user.username
-
+        total_price = 0
         self.views['cart_products'] = Cart.objects.filter(name=username, checkout=False)
-
+        for i in Cart.objects.filter(name=username, checkout=False):
+            total_price = total_price + i.total
+        self.views['total_price'] = total_price
+        self.views['delivery_charge'] = 5
+        self.views['all_total_price'] = total_price + self.views['delivery_charge']
         return render(request, 'cart.html', self.views)
 
 
@@ -69,6 +73,7 @@ class DetailView(BaseView):
         self.views['detail_products'] = Product.objects.filter(slug=slug)
         cat_id = Product.objects.get(slug=slug).category_id
         self.views['related_products'] = Product.objects.filter(category_id=cat_id)
+        self.views['product_reviews'] = ProductReviews.objects.filter(slug=slug)
         return render(request, 'shop-detail.html', self.views)
 
 
@@ -153,3 +158,55 @@ def delete_cart(request,slug):
     username = request.user.username
     Cart.objects.filter(name = username,slug=slug,checkout = False).delete()
     return redirect('/cart')
+
+
+def submit_review(request,slug):
+    if request.method == 'POST':
+        username = request.user.username
+        email = request.user.email
+        star = request.POST['star']
+        review = request.POST['review']
+        ProductReviews.objects.create(
+            username = username,
+            email = email,
+            star = star,
+            review = review,
+            slug = slug,
+        ).save()
+
+        return redirect(f'/detail/{slug}')
+
+
+def checkout(request):
+    if request.method == 'POST':
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        email = request.POST['email']
+        address = request.POST['address']
+        country = request.POST['country']
+        city = request.POST['city']
+        phone = request.POST['phone']
+
+        zipcode = request.POST['zipcode']
+        payment = request.POST['payment']
+        description = request.POST['description']
+
+        Checkout.objects.create(
+            firstname=firstname,
+            lastname=lastname,
+            email=email,
+            Address=address,
+            country=country,
+            city=city,
+
+            zipcode=zipcode,
+            phone=phone,
+            payment = payment,
+            description = description,
+
+
+
+            ).save()
+        return redirect('/')
+
+    return render(request, 'chackout.html')
